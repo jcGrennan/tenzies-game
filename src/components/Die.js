@@ -32,6 +32,7 @@ export default function Die(props) {
                             <div className="die-column">{dieDot}{dieDot}{dieDot}</div>
                             <div className="die-column">{dieDot}{dieDot}{dieDot}</div>
                         </div>
+            default: return
         }
     }
     
