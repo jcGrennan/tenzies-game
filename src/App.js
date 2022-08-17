@@ -1,3 +1,5 @@
+// importing the components, React for the state and effect hooks, and nanoid and confetti
+
 import React from "react"
 import Die from "./components/Die"
 import Roll from "./components/Roll"
