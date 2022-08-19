@@ -1,10 +1,11 @@
-// importing the components, React for the state and effect hooks, and nanoid and confetti dependencies
+// importing the components, React for the state and effect hooks, and dependencies
 
 import React from "react"
 import Die from "./components/Die"
 import Roll from "./components/Roll"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
+import useWindowSize from "@rooks/use-window-size"
 
 
 // composing and exporting the App
@@ -153,6 +154,8 @@ export default function App() {
     ))
     
 
+    const {innerWidth, innerHeight} = useWindowSize() // so the confetti will scale to window size
+
     // composing the App with JSX and passing props  
 
     return (
@@ -160,7 +163,7 @@ export default function App() {
         <main>
             
             {/* using conditional rendering to drop confetti when the game is won */}
-            {tenzies && <Confetti />}
+            {tenzies && <Confetti width={innerWidth} height={innerHeight}/>}
 
             <h1 className="title">Tenzies</h1>
             <p className="instructions">Roll until all dice are the same. 
