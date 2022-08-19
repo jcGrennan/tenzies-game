@@ -1,4 +1,4 @@
-// composing and exporting Roll component
+// composing and exporting Roll component. Small (done for practice)
 
 export default function Roll(props) {
 
