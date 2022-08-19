@@ -1,15 +1,19 @@
-import React from "react"
+// composing and exporting the Die component
 
 export default function Die(props) {
     
-    const styles = {
-        backgroundColor: props.isHeld ? "#59E391" : "#EFEFEF"
-    }
+    // using a ternary to determine the colour of the die based on wheter its held
+    const styles = {backgroundColor: props.isHeld ? "#59E391" : "#EFEFEF"}
     
+
     const dieDot = <span className="die-dot"></span>
     
+    // declaring a function that uses a switch statement to determine what JSX to return depending on the value rolled
+
     function dieDots() {
+
         switch(props.value) {
+
             case 1: 
                 return <div id="die-one">{dieDot}</div>
             case 2: 
@@ -33,8 +37,10 @@ export default function Die(props) {
                             <div className="die-column">{dieDot}{dieDot}{dieDot}</div>
                         </div>
             default: return
+
         }
     }
+    
     
     return (
         <div className="die-face" style={styles} onClick={props.holdDice}>
