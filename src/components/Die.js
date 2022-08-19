@@ -1,3 +1,5 @@
+import React from "react"
+
 // composing and exporting the Die component
 
 export default function Die(props) {
@@ -40,7 +42,7 @@ export default function Die(props) {
 
         }
     }
-    
+
     
     return (
         <div className="die-face" style={styles} onClick={props.holdDice}>
