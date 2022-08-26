@@ -1,7 +1,6 @@
 import React from "react"
 
 // composing and exporting Roll component. Small (done for practice)
-
 export default function Roll(props) {
 
     return (

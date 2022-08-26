@@ -1,7 +1,6 @@
 import React from "react"
 
 // composing and exporting the Die component
-
 export default function Die(props) {
     
     // using a ternary to determine the colour of the die based on wheter its held
@@ -11,7 +10,6 @@ export default function Die(props) {
     const dieDot = <span className="die-dot"></span>
     
     // declaring a function that uses a switch statement to determine what JSX to return depending on the value rolled
-
     function dieDots() {
 
         switch(props.value) {

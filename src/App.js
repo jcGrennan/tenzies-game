@@ -1,5 +1,4 @@
 // importing the components, React for the state and effect hooks, and dependencies
-
 import React from "react"
 import Die from "./components/Die"
 import Roll from "./components/Roll"
@@ -9,12 +8,10 @@ import useWindowSize from "@rooks/use-window-size"
 
 
 // composing and exporting the App
-
 export default function App() {
 
 
     // Setting up all states that will be needed on the top level
-
     const [rollCount, setRollCount] = React.useState(0) // tracks roll count
 
     const [dice, setDice] = React.useState(allNewDice()) // tracks die values and held die
@@ -30,7 +27,6 @@ export default function App() {
     
 
     // declaring a function that returns an object representing a die's data. The value is randomised.
-
     function generateNewDie() {
 
         return {
@@ -45,7 +41,6 @@ export default function App() {
 
     /* declaring a function that initialises an array, then loops and pushes 10 die using the function above.
         Used as the initial state for the dice state. */
-
     function allNewDice() {
 
         const newDice = []
@@ -59,7 +54,6 @@ export default function App() {
     
 
     // declaring a function to hold the chosen dice using setDice and the isHeld dice property with map.
-
     function holdDice(id) {
 
         setDice(oldDice => oldDice.map(die => {
@@ -71,7 +65,6 @@ export default function App() {
     
 
     // declaring a function that rolls any die not held and tracks the roll count.
-
     function rollDice() {
 
         setRollCount(prevCount => prevCount + 1)
@@ -79,7 +72,6 @@ export default function App() {
         setDice(oldDice => oldDice.map(die => {
             
             // using a ternary to determine which die need to be rerolled
-            
             return die.isHeld ? die : generateNewDie()
 
         }))
@@ -87,7 +79,6 @@ export default function App() {
     
 
     // declaring a function that starts a new game by resetting all the necessary states.
-
     function newGame() {
 
         setTenzies(false)
@@ -98,7 +89,6 @@ export default function App() {
       
     
     // Using the effect hook to track when the win conditions have been met as states need to be in sync.
-
     React.useEffect(() => {
 
         const allHeld = dice.every(die => die.isHeld) // tests if all die are held
@@ -106,13 +96,11 @@ export default function App() {
         const allSameValue = dice.every(die => die.value === firstValue) // tests if all other die match the first
 
         // using an if statement that ends the game if above tests are true
-
         if (allHeld && allSameValue) {
 
             setTenzies(true)
 
             // using an if statement to set the personal best 
-
             setPersonalBest(prevBest => {
 
                 if(prevBest === 0) {
@@ -130,7 +118,6 @@ export default function App() {
     
 
     // using Effect hook to store the personal best state every time it changes
-
     React.useEffect(() => {
 
         localStorage.setItem("personalBest", JSON.stringify(personalBest))
@@ -139,7 +126,6 @@ export default function App() {
 
 
     // mapping dice to the reusable Die component and passing props
-
     const diceElements = dice.map(die => (
 
         <Die 
@@ -157,7 +143,6 @@ export default function App() {
     const {innerWidth, innerHeight} = useWindowSize() // so the confetti will scale to window size
 
     // composing the App with JSX and passing props  
-
     return (
 
         <main>
